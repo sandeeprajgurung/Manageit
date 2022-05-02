@@ -57,7 +57,7 @@ else :
     else :
         try {
 
-            $check_email = "SELECT `email` FROM `auth_users` WHERE `email`=:email";
+            $check_email = "SELECT `email` FROM `user` WHERE `email`=:email";
             $check_email_stmt = $conn->prepare($check_email);
             $check_email_stmt->bindValue(':email', $email, PDO::PARAM_STR);
             $check_email_stmt->execute();
@@ -66,7 +66,7 @@ else :
                 $returnData = msg(0, 422, 'This E-mail already in use!');
 
             else :
-                $insert_query = "INSERT INTO `auth_users`(`name`,`email`,`password`,`roles_id`) VALUES(:name,:email,:password,:role)";
+                $insert_query = "INSERT INTO `user`(`username`,`email`,`password`,`roles_id`) VALUES(:name,:email,:password,:role)";
 
                 $insert_stmt = $conn->prepare($insert_query);
 
