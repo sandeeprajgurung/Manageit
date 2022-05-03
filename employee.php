@@ -322,7 +322,7 @@ $usersFromApi = json_decode($getUsersFromApi);
 
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                            <button class="button">Delete</button>
+                                            <a href="employeeController.php?id=<?php echo $row['id']; ?>">Delete</a>
                                         </td>
                                     </tr>
                                     <?php } ?>

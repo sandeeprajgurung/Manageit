@@ -32,7 +32,7 @@
     <div class="flex">
         <div class="flex flex-col w-64 h-screen  overflow-y-auto border-r">
             <div class="flex flex-col justify-between mt-6">
-            <aside>
+                <aside>
                     <div class="px-3 py-2 overflow-y-auto rounded ">
                         <ul class="space-y-2 sidebar">
                             <li>
@@ -113,7 +113,7 @@
                                     <span class="flex-1 ml-3 whitespace-nowrap">Event</span>
                                 </a>
                             </li>
-                            
+
                             <li>
                                 <a href="unfinished.php"
                                     class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-orange-400  dark:text-white group">
@@ -136,7 +136,7 @@
                                             class="flex items-center p-2 pl-11 w-full  text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Asset
                                             history</a>
                                     </li>
-                                    
+
                                     <li>
                                         <a href="assetForm.php"
                                             class="flex items-center p-2 pl-11 w-full text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Request
@@ -233,81 +233,67 @@
                 </ol>
             </nav>
             <!--profile-->
+            <form action="./employeeController.php" method="POST">
             <div class="container mx-auto my-2 p-2">
                 <div class="md:flex no-wrap md:-mx-2 ">
                     <!-- Left Side -->
                     <div class="w-full md:w-3/12 md:mx-2">
                         <!-- Profile Card -->
+                        
                         <div class="bg-white p-3 shadow-sm ">
                             <div class="image overflow-hidden rounded-full">
                                 <img class="h-auto w-full mx-auto" src="img/person.png" alt="">
                             </div>
 
-                            <h1 class="text-gray-700 font-bold text-xl leading-8 my-2">Sandesh Raj Gurung</h1>
-                            <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Manageit</h3>
+                            <input type="text" name="username" autocomplete="off"
+                                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                        placeholder=" Username"  />
+                                    
                             <ul
                                 class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                                 <li class="flex items-center py-3">
-                                    <span>Status</span>
-                                    <span class="ml-auto"><span>
-                                            <div>
-                                                <div>
-                                                    <div class="form-check">
-                                                        <input
-                                                            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                                            type="radio" name="status" id="flexRadioDefault1">
-                                                        <label class="form-check-label inline-block text-gray-800"
-                                                            for="flexRadioDefault1">
-                                                            Active
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input
-                                                            class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                                            type="radio" name="status" id="flexRadioDefault2" checked>
-                                                        <label class="form-check-label inline-block text-gray-800"
-                                                            for="flexRadioDefault2">
-                                                            Inactive
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <span>Role</span>
+                                    <div class="relative ml-16">
 
-                                        </span></span>
+                                        <select name="role"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            id="grid-state">
+                                            <option value="superadmin">Superadmin</option>
+                                            <option value="admin">Admin</option>
+                                            <option value="user">User</option>
+                                        </select>
+                                        </span>
                                 </li>
                                 <li class="flex items-center py-3">
                                     <span>Member since</span>
+
                                     <div class="relative">
                                         <div
-                                            class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                                            <svg class="w-5 h-5 text-orange-400 dark:text-gray-400" fill="currentColor"
+                                            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
                                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd"
                                                     d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
                                                     clip-rule="evenodd"></path>
                                             </svg>
                                         </div>
-                                        <input datepicker datepicker-orientation="bottom right" type="text"
-                                            name="memberSince"
+                                        <input datepicker type="text" name="memberSince"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             placeholder="Select date">
                                     </div>
+
                                     </span>
                                 </li>
                             </ul>
-                            <div class="px-4 py-3 text-right sm:px-6">
-                                <button type="submit"
-                                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-400 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
-                            </div>
                         </div>
-
+                        
                     </div>
                     <!-- Right Side -->
                     <div class="w-full md:w-9/12 mx-2 h-64">
 
                         <!-- Details -->
-                        <div class="text-gray-700">
-                            <form id="create-user" name="create-user" action="api/user.php" method="POST">
+                        <div class="text-gray-700 mb-4" >
+                            
                                 <div class="shadow-sm overflow-hidden sm:rounded-md">
                                     <div class="px-4 py-5 bg-white sm:p-6">
                                         <div
@@ -321,23 +307,28 @@
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="first-name"
                                                     class="block text-sm font-medium text-gray-700">First name</label>
-                                                <input type="text" name="firstName" id="first-name"
-                                                    autocomplete="given-name"
+                                                <input type="text" name="firstName" id="first-name" autocomplete="off"
+                                                    
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="last-name"
                                                     class="block text-sm font-medium text-gray-700">Last name</label>
-                                                <input type="text" name="lastName" id="last-name"
+                                                <input type="text" name="lastName" id="last-name" autocomplete="off"
                                                     autocomplete="family-name"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="gender"
                                                     class="block text-sm font-medium text-gray-700">Gender</label>
-                                                <input type="text" name="gender" id="gender" autocomplete="given-name"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <select name="gender"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    id="grid-state">
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                    <option value="other">Others</option>
+                                                </select>
                                             </div>
 
 
@@ -345,7 +336,7 @@
                                                 <label for="contact"
                                                     class="block text-sm font-medium text-gray-700">Contact</label>
                                                 <input type="text" name="contactNumber" id="contact"
-                                                    autocomplete="family-name"
+                                                autocomplete="off"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
@@ -353,7 +344,7 @@
                                                     class="block text-sm font-medium text-gray-700">Current
                                                     address</label>
                                                 <input type="text" name="currentAddress" id="currentAddress"
-                                                    autocomplete="given-name"
+                                                    autocomplete="off" 
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
 
@@ -362,44 +353,39 @@
                                                     class="block text-sm font-medium text-gray-700">Permanent
                                                     address</label>
                                                 <input type="text" name="permanentAddress" id="permanentAddress"
-                                                    autocomplete="family-name"
+                                                    autocomplete="off" 
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="email"
                                                     class="block text-sm font-medium text-gray-700">Email</label>
-                                                <input type="text" name="email" id="email" autocomplete="given-name"
+                                                <input type="email" name="email" id="email" 
+                                                    autocomplete="off"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
 
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="dob" class="block text-sm font-medium text-gray-700">Date of
                                                     Birth</label>
-                                                <input type="text" name="dateOfBirth" id="dob"
-                                                    autocomplete="family-name"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                    
+                                                <input datepicker type="text" name="dob"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                    placeholder="Select date">
                                             </div>
-                                            
+
                                         </div>
                                     </div>
-                                    <div class="px-4 py-3 text-right sm:px-6">
-                                        <button type="submit"
-                                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-400 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
-                                    </div>
                                 </div>
-                            </form>
+                            
                         </div>
 
-                        <!-- End of about section -->
-
-                        <div class="my-4"></div>
-
-                        <!-- Project and Account details -->
+                        <!-- End of about section -->                        
+                       <!-- Project and Account details -->
 
 
                         <div class="grid grid-cols-2 gap-4">
                             <!--Edit Project-->
-                            <form action="userController.php" method="POST">
+                            
                                 <div class=" shadow-sm overflow-hidden sm:rounded-md">
                                     <div class="px-4 py-5 bg-white sm:p-6">
                                         <div
@@ -426,16 +412,6 @@
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
-                                                <label for="projectMember"
-                                                    class="block text-sm font-medium text-gray-700">Project
-                                                    Members</label>
-                                                <input type="text" name="projectMember" id="projectMember"
-                                                    autocomplete="given-name"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            </div>
-
-
-                                            <div class="col-span-6 sm:col-span-3">
                                                 <label for="joinedDate"
                                                     class="block text-sm font-medium text-gray-700">Joined Date</label>
                                                 <input type="text" name="projectMember" id="projectMember"
@@ -444,15 +420,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="px-4 py-3 text-right sm:px-6">
-                                        <button type="submit"
-                                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-400 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
-                                    </div>
                                 </div>
-                            </form>
-
+                            
                             <!--Edit Account-->
-                            <form action="#" method="POST">
+                           
                                 <div class="shadow-sm overflow-hidden sm:rounded-md">
                                     <div class="px-4 py-5 bg-white sm:p-6">
                                         <div
@@ -478,14 +449,7 @@
                                                     autocomplete="family-name"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
-                                            <div class="col-span-6 sm:col-span-3">
-                                                <label for="pfnNumber"
-                                                    class="block text-sm font-medium text-gray-700">PFN Number
-                                                </label>
-                                                <input type="text" name="pfnNumber" id="pfnNumber"
-                                                    autocomplete="given-name"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            </div>
+                                            
                                             <div class="col-span-6 sm:col-span-3">
                                                 <label for="panCard" class="block text-sm font-medium text-gray-700">PAN
                                                     Card</label>
@@ -495,21 +459,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="px-4 py-3  text-right sm:px-6">
-                                        <button type="submit"
-                                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-400 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
-                                    </div>
+                                    
                                 </div>
-                            </form>
+                            
                         </div>
+                        <div class="px-4 py-3  text-right sm:px-6">
+                                        <button type="submit" name="create"
+                                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-400 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Create</button>
+                                    </div>
                     </div>
                 </div>
             </div>
+            </form>
 
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
-        <script src="https://unpkg.com/flowbite@1.3.4/dist/datepicker.js"></script>
+        <script src="https://unpkg.com/flowbite@1.4.4/dist/datepicker.js"></script>
 
 </body>
 
