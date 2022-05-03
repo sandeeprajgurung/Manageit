@@ -1,4 +1,10 @@
- 
+<?php
+    $conn = mysqli_connect('localhost', 'root', '', 'manageit');
+
+    $id = $_GET['view'];
+    $sql = "SELECT * FROM user WHERE id = $id";
+    $result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -221,6 +227,10 @@
             </nav>
             <!--profile-->
             <div class="container mx-auto my-2 p-2">
+            <?php
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+            ?>
                 <div class="md:flex no-wrap md:-mx-2 ">
                     <!-- Left Side -->
                     <div class="shadow-sm w-full md:w-3/12 md:mx-2">
@@ -228,10 +238,10 @@
                         <div class="bg-white p-3 ">
                             <div class="image overflow-hidden rounded-full">
                                 <img class="h-auto w-full mx-auto"
-                                    src="img/person.png" alt="">
+                                    src="<?php echo "img/profile-pic/".$row['profile_img']; ?>" alt="">
                             </div>
                             
-                            <h1 class="text-gray-700 font-bold text-xl leading-8 my-2">Sandesh Raj Gurung</h1>
+                            <h1 class="text-gray-700 font-bold text-xl leading-8 my-2"><?php echo $row['username']; ?></h1>
                             <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Manageit</h3>
                             <ul
                                 class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
@@ -389,6 +399,8 @@
                         </div>
                     </div>
                 </div>
+                <?php }
+      }?>
             </div> 
         </div>
         <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>

@@ -1,8 +1,12 @@
 <?php
 include('leaveController.php'); 
 include "./session.php";
-$getUsersFromApi = file_get_contents('http://localhost/Manageit/api/user.php');
-$usersFromApi = json_decode($getUsersFromApi);
+// $getUsersFromApi = file_get_contents('http://localhost/Manageit/api/user.php');
+// $usersFromApi = json_decode($getUsersFromApi);
+
+    $conn = mysqli_connect('localhost', 'root', '', 'manageit');
+    $sql = "SELECT * FROM user";
+    $result = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -295,17 +299,22 @@ $usersFromApi = json_decode($getUsersFromApi);
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                    <?php foreach ($usersFromApi->users as $user) { ?>
+                                <?php
+                                    if (mysqli_num_rows($result) > 0) {
+                                        while($row = mysqli_fetch_assoc($result)) {
+                                ?>
+
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap"><a href="profile.php">
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <a href="profile.php?view=<?php echo $row['id']; ?>">
                                                 <div class="flex items-center">
                                                     <div class="flex-shrink-0 h-10 w-10">
-                                                        <img class="h-10 w-10 rounded-full" src="img/person.png" alt="">
+                                                        <img class="h-10 w-10 rounded-full" src="<?php echo "img/profile-pic/".$row['profile_img'] ?>" alt="">
                                                     </div>
                                                     <div class="ml-4">
                                                         <div class="text-sm  font-medium text-gray-900">
-                                                            <?php echo $user->firstName . ' ' . $user->lastName ?></div>
-                                                        <div class="text-sm  text-gray-500"><?php echo $user->email ?>
+                                                            <?php echo $row['first_name'] . ' ' . $row['last_name'] ?></div>
+                                                        <div class="text-sm  text-gray-500"><?php echo $row['email'] ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -317,16 +326,16 @@ $usersFromApi = json_decode($getUsersFromApi);
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Admin</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="employeeController.php?edit=<?php echo $user->id; ?>"
+                                            <a href="profileForm.php?edit=<?php echo $row['id']; ?>"
                                                 class="text-indigo-600 hover:text-indigo-900">Edit</a>
 
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                            <a href="employeeController.php?del=<?php echo $user->id; ?>">Delete</a>
+                                            <a href="employeeController.php?del=<?php echo $row['id']; ?>">Delete</a>
                                         </td>
                                     </tr>
-                                    <?php } ?>
-                                    <!-- More people... -->
+                                    <?php }
+      }?>
                                 </tbody>
                             </table>
 
