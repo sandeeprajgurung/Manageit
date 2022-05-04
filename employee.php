@@ -317,12 +317,12 @@ $usersFromApi = json_decode($getUsersFromApi);
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Admin</td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="profileForm.php"
+                                            <a href="employeeController.php?edit=<?php echo $user->id; ?>"
                                                 class="text-indigo-600 hover:text-indigo-900">Edit</a>
 
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                            <a href="employeeController.php?id=<?php echo $row['id']; ?>">Delete</a>
+                                            <a href="employeeController.php?del=<?php echo $user->id; ?>">Delete</a>
                                         </td>
                                     </tr>
                                     <?php } ?>

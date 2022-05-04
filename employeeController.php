@@ -25,9 +25,11 @@
 		$_SESSION['message'] = "Personal Detail created"; 
 		header('location: employee.php');
 	}
+    //deleting employee
     if (isset($_GET['del'])) {
         $id = $_GET['del'];
         mysqli_query($db, "DELETE FROM user WHERE id=$id");
         $_SESSION['message'] = "Address deleted!"; 
         header('location: employee.php');
     }
+    //edit employee
