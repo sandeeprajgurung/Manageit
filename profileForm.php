@@ -1,6 +1,10 @@
 <?php
-    // require_once "userController.php";
-?>
+    $conn = mysqli_connect('localhost', 'root', '', 'manageit');
+
+    $id = $_GET['edit'];
+    $sql = "SELECT * FROM user WHERE id = $id";
+    $result = mysqli_query($conn, $sql);
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +18,52 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="plugins/bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/employee.css" />
+    <style>
+.center {
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+}
+.form-input {
+  width:350px;
+  padding:20px;
+  background:#fff;
+  box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+              3px 3px 7px rgba(94, 104, 121, 0.377);
+}
+.form-input input {
+  display:none;
+
+}
+.form-input label {
+  display:block;
+  width:45%;
+  height:45px;
+  margin-left: 25%;
+  line-height:50px;
+  text-align:center;
+  background:#1172c2;
+
+  color:#fff;
+  font-size:15px;
+  font-family:"Open Sans",sans-serif;
+  text-transform:Uppercase;
+  font-weight:600;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.form-input img {
+  width:100%;
+  display:none;
+
+  margin-bottom:30px;
+}
+
+   
+  </style>
 
 </head>
 
@@ -233,7 +283,12 @@
                 </ol>
             </nav>
             <!--profile-->
-            <form action="./employeeController.php" method="POST">
+            <?php
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                ?>
+            <form action="./employeeController.php" method="POST" enctype="multipart/form-data">
+            <input type="text" name="id" value="<?php echo $row['id']; ?>" hidden/>
             <div class="container mx-auto my-2 p-2">
                 <div class="md:flex no-wrap md:-mx-2 ">
                     <!-- Left Side -->
@@ -242,10 +297,19 @@
                         
                         <div class="bg-white p-3 shadow-sm ">
                             <div class="image overflow-hidden rounded-full">
-                                <img class="h-auto w-full mx-auto" src="img/person.png" alt="">
+                            <div class="center">
+                                <div class="form-input">
+                                    <div class="preview">
+                                    <img id="file-ip-1-preview">
+                                    </div>
+                                    <label for="file-ip-1">Upload Image</label>
+                                    <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);" name="profile_pic">
+                                    
+                                </div>
+                                </div> 
                             </div>
 
-                            <input type="text" name="username" autocomplete="off"
+                            <input type="text" name="username" autocomplete="off" value="<?php echo $row['username']; ?>"
                                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                         placeholder=" Username"  />
                                     
@@ -361,6 +425,7 @@
                                                     class="block text-sm font-medium text-gray-700">Email</label>
                                                 <input type="email" name="email" id="email" 
                                                     autocomplete="off"
+                                                    value="<?php echo $row['email']; ?>"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
 
@@ -472,10 +537,23 @@
             </div>
             </form>
 
+            <?php }
+      }?>
+
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
         <script src="https://unpkg.com/flowbite@1.4.4/dist/datepicker.js"></script>
+        <script type="text/javascript">
+        function showPreview(event){
+            if(event.target.files.length > 0){
+                var src = URL.createObjectURL(event.target.files[0]);
+                var preview = document.getElementById("file-ip-1-preview");
+                preview.src = src;
+                preview.style.display = "block";
+            }
+        }
+        </script>
 
 </body>
 
