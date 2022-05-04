@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,8 +14,9 @@
     <link rel="stylesheet" href="css/employee.css" />
 
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg py-3 navbar-dark bg-gradient-to-r from-orange-400 to-yellow-400 shadow-sm">
+    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-gradient-to-r from-orange-400 to-yellow-400 shadow-sm">
         <div class="container">
             <a href="unfinished.php" class="navbar-brand">
                 <!-- Logo Image -->
@@ -30,7 +32,7 @@
                     <span class="sr-only">Open user menu</span>
                     <img class="w-8 h-8 rounded-full" src="./img/person.png" alt="user photo">
                 </button>
-                <p class="ml-4 mr-4" > </p>
+                <p class="ml-4 mr-4"> </p>
 
                 <div class="hidden z-50  text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
                     id="dropdown" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top"
@@ -45,7 +47,7 @@
                             <a href="#"
                                 class="block py-2 px-4 text-sm rounded-lg text-gray-700 hover:bg-orange-400 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
                         </li>
-                        
+
                         <li>
                             <a href="#"
                                 class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
@@ -237,6 +239,139 @@
                     </li>
                 </ol>
             </nav>
-        </div> 
+
+            <!--project-->
+            <div class="grid md:grid-cols-3 gap-6 text-center mt-4">
+                <div>
+                    <div class="block rounded-lg shadow-lg bg-white">
+                        <div class="overflow-hidden rounded-t-lg h-20" style="background-color: #9d789b;">
+                        <p class="text-white mt-3 text-2xl">Project</p>
+                    </div>
+                        
+                        <div class="p-6">
+                            <h4 class="text-2xl font-semibold mb-2">5</h4>
+                           
+                            
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="block rounded-lg shadow-lg bg-white">
+                        <div class="overflow-hidden rounded-t-lg h-20" style="background-color: #7a81a8;">
+                        <p class="text-white mt-3 text-2xl">Working employees
+                        </p>
+                    </div>
+                        
+                        <div class="p-6">
+                            <h4 class="text-2xl font-semibold mb-2">25</h4>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="block rounded-lg shadow-lg bg-white">
+                        <div class="overflow-hidden rounded-t-lg h-20" style="background-color: #6d5b98;">
+                        <p class="text-white mt-3 text-2xl">Free employee</p>
+                    </div>
+                        
+                        <div class="p-6">
+                            <h4 class="text-2xl font-semibold mb-2">25</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="overflow-hidden mt-4">
+
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-orange-400 ">
+                                    <tr class="list_head">
+                                        <th scope="col">Project</th>
+                                        <th scope="col">Project Manager</th>
+                                        <th scope="col">Start Date</th>
+                                        <th scope="col" class="relative px-6 py-3">
+                                            <span class="sr-only">Edit</span>
+                                        </th>
+                                        <th scope="col" class="relative px-6 py-3">
+                                            <span class="sr-only">Delete</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap"><a href="profile.php">
+                                                Personal Fitness
+                                            </a>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            Sudip Bhandari
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">01/04/2020</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="employeeController.php?edit=<?php echo $user->id; ?>"
+                                                class="text-indigo-600 hover:text-indigo-900">Edit</a>
+
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
+                                            <a href="employeeController.php?del=<?php echo $user->id; ?>">Delete</a>
+                                        </td>
+                                    </tr>
+                                  
+                                    <!-- More project... -->
+                                </tbody>
+                            </table>
+                            <button onclick="location.href='projectForm.php'"
+                class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 my-4 rounded-full inline-flex items-center">
+                <i class="material-icons" style="color:white">add</i> Project
+            </button>
+                        </div>
+
+                        <div class="bg-white p-3 shadow-sm rounded-sm">
+                            <div class="flex items-center space-x-2 font-semibold text-orange-400 leading-8">
+                                <span class="text-orange-400">
+                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                            </svg>
+                                </span>
+                                <span class="tracking-wide">Project Details</span>
+                            </div>
+                            
+                            <div class="text-gray-700">
+                                
+                                <div class="grid md:grid-cols-2 text-sm">
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold">Project Name</div>
+                                        <div class="px-4 py-2">Sandesh</div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold">Project Manager</div>
+                                        <div class="px-4 py-2">Gurung</div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold">Start Date</div>
+                                        <div class="px-4 py-2">Male</div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold">End Date</div>
+                                        <div class="px-4 py-2">+977 9865327845</div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold">Members</div>
+                                        <div class="px-4 py-2">Kathmandu, Nepal</div>
+                                    </div>
+                                    <div class="grid grid-cols-2">
+                                        <div class="px-4 py-2 font-semibold">Joined at</div>
+                                        <div class="px-4 py-2">Kathmandu, Nepal</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+
+        </div>
 </body>
+
 </html>

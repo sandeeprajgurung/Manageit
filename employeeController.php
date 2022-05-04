@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$db = mysqli_connect('localhost', 'root', '', 'manageit');
-
+    
     //fill detail
     if (isset($_POST['create'])) {
 		$firstName = $_POST['firstName'];

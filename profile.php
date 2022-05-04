@@ -1,4 +1,4 @@
- 
+<?php  include('employeeController.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -220,9 +220,12 @@
                 </ol>
             </nav>
             <!--profile-->
+            
+          
             <div class="container mx-auto my-2 p-2">
                 <div class="md:flex no-wrap md:-mx-2 ">
-                    <!-- Left Side -->
+                
+                <!-- Left Side -->
                     <div class="shadow-sm w-full md:w-3/12 md:mx-2">
                         <!-- Profile Card -->
                         <div class="bg-white p-3 ">
@@ -231,8 +234,8 @@
                                     src="img/person.png" alt="">
                             </div>
                             
-                            <h1 class="text-gray-700 font-bold text-xl leading-8 my-2">Sandesh Raj Gurung</h1>
-                            <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Manageit</h3>
+                            <h1 class="text-gray-700 font-bold text-xl leading-8 my-2"><?php echo $row['username']; ?></h1>
+                            
                             <ul
                                 class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                                 <li class="flex items-center py-3">
@@ -389,6 +392,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div> 
         </div>
         <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>

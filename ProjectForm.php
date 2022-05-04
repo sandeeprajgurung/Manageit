@@ -1,9 +1,4 @@
-<?php
-include('leaveController.php'); 
-include "./session.php";
-$getUsersFromApi = file_get_contents('http://localhost/Manageit/api/user.php');
-$usersFromApi = json_decode($getUsersFromApi);
-?>
+<?php  include('leaveController.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,73 +6,44 @@ $usersFromApi = json_decode($getUsersFromApi);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>employees</title>
+    <title>Request Assets</title>
+
+    
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="plugins/bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="css/employee.css" />
-
-
 </head>
 
 <body>
-    
-    <nav
-        class="bg-gradient-to-r from-orange-400 to-yellow-400 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
-        <div class="container flex flex-wrap justify-between items-center mx-auto">
-            <a href="https://flowbite.com" class="flex items-center">
-                <img src="./img/Frame 1.png" class=" h-6 sm:h-9 rounded-full" alt="Flowbite Logo">
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Manageit</span>
+
+<body>
+<?php if (isset($_SESSION['message'])): ?>
+	<div class="msg">
+		<?php 
+			echo $_SESSION['message']; 
+			unset($_SESSION['message']);
+		?>
+	</div>
+<?php endif ?>
+
+    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-gradient-to-r from-orange-400 to-yellow-400 shadow-sm">
+        <div class="container">
+            <a href="unfinished.php" class="navbar-brand">
+                <!-- Logo Image -->
+                <img src="https://bootstrapious.com/i/snippets/sn-nav-logo/logo.png" width="30" alt=""
+                    class="d-inline-block align-middle mr-2">
+                <!-- Logo Text -->
+                <span class="text-uppercase font-weight-bold">Manageit</span>
             </a>
-            <div class="flex items-center md:order-2">
-                <button type="button"
-                    class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                    id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
-                    <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="./img/person.png" alt="user photo">
-                </button>
-                <p class="ml-4 mr-4"><?php echo $_SESSION['user']['name']; ?></p>
-
-                <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
-                    id="dropdown" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top"
-                    style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(1054.4px, 1016px, 0px);">
-                    <div class="py-3 px-4">
-                        <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                        <span
-                            class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
-                    </div>
-                    <ul class="py-1" aria-labelledby="dropdown">
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                        </li>
-                        <li>
-                            <a href="logout.php"
-                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                out</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
     </nav>
-
-
     <!--Side bar-->
     <div class="flex">
         <div class="flex flex-col w-64 h-screen  overflow-y-auto border-r">
             <div class="flex flex-col justify-between mt-6">
-                <aside>
+            <aside>
                     <div class="px-3 py-2 overflow-y-auto rounded ">
                         <ul class="space-y-2 sidebar">
                             <li>
@@ -158,7 +124,7 @@ $usersFromApi = json_decode($getUsersFromApi);
                                     <span class="flex-1 ml-3 whitespace-nowrap">Event</span>
                                 </a>
                             </li>
-
+                            
                             <li>
                                 <a href="unfinished.php"
                                     class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-orange-400  dark:text-white group">
@@ -181,7 +147,7 @@ $usersFromApi = json_decode($getUsersFromApi);
                                             class="flex items-center p-2 pl-11 w-full  text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Asset
                                             history</a>
                                     </li>
-
+                                    
                                     <li>
                                         <a href="assetForm.php"
                                             class="flex items-center p-2 pl-11 w-full text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Request
@@ -248,101 +214,125 @@ $usersFromApi = json_decode($getUsersFromApi);
                                     d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                            <span
-                                class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Employee</span>
+                            <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
+                             Request assets   </span>
                         </div>
                     </li>
                 </ol>
             </nav>
-
-            <!--List table-->
-            <div class="flex flex-col">
-                <div class="overflow-x-auto shadow-md sm:rounded-lg">
-                    <div class="inline-block min-w-full align-middle dark:bg-gray-800 ">
-                        <!--search-->
-                        <div class="p-4 ">
-                            <label for="table-search" class="sr-only">Search</label>
-                            <div class="relative mt-1">
-                                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </div>
-                                <input type="text" id="table-search"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Search employees">
-                            </div>
-
+            <!-- Form -->
+            <form class="w-full  my-5 bg-white p-2 " id="projectForm" name="createProject" action="leaveController.php" method="POST">
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="grid-first-name">
+                            Project Name
+                        </label>
+                        <div class="relative">
+                            <input type="text" name="employee" placeholder="project name" 
+                                class="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="grid-state">
+                                
+                            </input>
                         </div>
-                        <!--employee list-->
-                        <div class="overflow-hidden">
-
-                            <table class="min-w-full divide-y divide-gray-200">
-                                <thead class="bg-orange-400 ">
-                                    <tr class="list_head">
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Role</th>
-                                        <th scope="col" class="relative px-6 py-3">
-                                            <span class="sr-only">Edit</span>
-                                        </th>
-                                        <th scope="col" class="relative px-6 py-3">
-                                            <span class="sr-only">Delete</span>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
-                                    <?php foreach ($usersFromApi->users as $user) { ?>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap"><a href="profile.php">
-                                                <div class="flex items-center">
-                                                    <div class="flex-shrink-0 h-10 w-10">
-                                                        <img class="h-10 w-10 rounded-full" src="img/person.png" alt="">
-                                                    </div>
-                                                    <div class="ml-4">
-                                                        <div class="text-sm  font-medium text-gray-900">
-                                                            <?php echo $user->firstName . ' ' . $user->lastName ?></div>
-                                                        <div class="text-sm  text-gray-500"><?php echo $user->email ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">Owner</div>
-                                            <div class="text-sm text-gray-500">Manageit</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Admin</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href="employeeController.php?edit=<?php echo $user->id; ?>"
-                                                class="text-indigo-600 hover:text-indigo-900">Edit</a>
-
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                                            <a href="employeeController.php?del=<?php echo $user->id; ?>">Delete</a>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                    <!-- More people... -->
-                                </tbody>
-                            </table>
-
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                       
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="grid-first-name">
+                            Project Name
+                        </label>
+                        <div class="relative">
+                            <input type="text" name="employee" placeholder="project Manager" 
+                                class="block appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="grid-state">
+                                
+                            </input>
                         </div>
                     </div>
                 </div>
-            </div>
-            <button onclick="location.href='profileForm.php'"
-                class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 my-4 rounded-full inline-flex items-center">
-                <i class="material-icons" style="color:white">add</i> People
-            </button>
+                <div class="flex flex-wrap -mx-3 mb-2">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
+                            for="grid-city">
+                            Start Date
+                        </label>
+                        <div class="relative">
+                            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                                <svg class="w-5 h-5 text-orange-400 dark:text-gray-400" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <input datepicker datepicker-orientation="bottom right" type="givenDate" id="startdate" name="givenDate" autocomplete="off"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Select date">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="grid-state">
+                            End Date
+                        </label>
+                        <div class="relative">
+                            <div class="relative">
+                                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-orange-400 dark:text-gray-400" fill="currentColor"
+                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <input type="text" id="enddate" name="returnDate" autocomplete="off"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Select date">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                
+                    <div class="px-4 py-3 text-right sm:px-6">
+                                        <button type="submit" name="asset"
+                                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-400 hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Apply</button>
+                    </div>
+                </div>
+
+            </form>
+            
         </div>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
-        <script src="https://unpkg.com/flowbite@1.3.4/dist/datepicker.js"></script>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
+
+<script>
+$(document).ready(function() {
+    $( "#startdate,#enddate" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
+        firstDay: 1,
+        dateFormat: 'yy/mm/dd',
+    })
+
+    $( "#startdate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    $( "#enddate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+
+    $('input#enddate').change(function() {
+        var start = $('#startdate').datepicker('getDate');
+        var end   = $('#enddate').datepicker('getDate');
+
+        if (start && end) {
+            var days = (end - start)/1000/60/60/24;
+            $('#days').val(days + 1);
+        }
+    });
+});     
+</script>
 
 </html>
