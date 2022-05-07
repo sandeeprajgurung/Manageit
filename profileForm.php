@@ -57,7 +57,7 @@
 
 .form-input img {
   width:100%;
-  display:none;
+  /* display:none; */
 
   margin-bottom:30px;
 }
@@ -300,7 +300,7 @@
                             <div class="center">
                                 <div class="form-input">
                                     <div class="preview">
-                                    <img id="file-ip-1-preview">
+                                    <img id="file-ip-1-preview" src="<?php echo "img/profile-pic/".$row['profile_img'] ?>">
                                     </div>
                                     <label for="file-ip-1">Upload Image</label>
                                     <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);" name="profile_pic">
@@ -319,12 +319,12 @@
                                     <span>Role</span>
                                     <div class="relative ml-16">
 
-                                        <select name="role"
+                                        <select name="roles_id"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             id="grid-state">
-                                            <option value="superadmin">Superadmin</option>
-                                            <option value="admin">Admin</option>
-                                            <option value="user">User</option>
+                                            <option value="1" <?php if($row['roles_id'] == '1') echo "selected=\"selected\""; ?>>Superadmin</option>
+                                            <option value="4" <?php if($row['roles_id'] == '2') echo "selected=\"selected\""; ?>>Admin</option>
+                                            <option value="3" <?php if($row['roles_id'] == '3') echo "selected=\"selected\""; ?>>User</option>
                                         </select>
                                         </span>
                                 </li>
@@ -341,7 +341,7 @@
                                                     clip-rule="evenodd"></path>
                                             </svg>
                                         </div>
-                                        <input datepicker type="text" name="memberSince"
+                                        <input datepicker type="text" name="memberSince" value="<?php echo $row['member_since']; ?>"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             placeholder="Select date">
                                     </div>
@@ -372,7 +372,7 @@
                                                 <label for="first-name"
                                                     class="block text-sm font-medium text-gray-700">First name</label>
                                                 <input type="text" name="firstName" id="first-name" autocomplete="off"
-                                                    
+                                                    value="<?php echo $row['first_name']; ?>"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
 
@@ -381,6 +381,7 @@
                                                     class="block text-sm font-medium text-gray-700">Last name</label>
                                                 <input type="text" name="lastName" id="last-name" autocomplete="off"
                                                     autocomplete="family-name"
+                                                    value="<?php echo $row['last_name']; ?>"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
@@ -389,8 +390,8 @@
                                                 <select name="gender"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                     id="grid-state">
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
+                                                    <option value="male" <?php if($row['gender'] == 'male') echo "selected=\"selected\""; ?>>Male</option>
+                                                    <option value="female" <?php if($row['gender'] == 'female') echo "selected=\"selected\""; ?>>Female</option>
                                                     <option value="other">Others</option>
                                                 </select>
                                             </div>
@@ -401,6 +402,7 @@
                                                     class="block text-sm font-medium text-gray-700">Contact</label>
                                                 <input type="text" name="contactNumber" id="contact"
                                                 autocomplete="off"
+                                                value="<?php echo $row['contact_number']; ?>"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
@@ -409,6 +411,7 @@
                                                     address</label>
                                                 <input type="text" name="currentAddress" id="currentAddress"
                                                     autocomplete="off" 
+                                                    value="<?php echo $row['current_address']; ?>"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
 
@@ -417,7 +420,8 @@
                                                     class="block text-sm font-medium text-gray-700">Permanent
                                                     address</label>
                                                 <input type="text" name="permanentAddress" id="permanentAddress"
-                                                    autocomplete="off" 
+                                                    autocomplete="off"
+                                                    value="<?php echo $row['permanent_address']; ?>"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
@@ -434,6 +438,7 @@
                                                     Birth</label>
                                                     
                                                 <input datepicker type="text" name="dob"
+                                                    value="<?php echo $row['date_of_birth']; ?>"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                     placeholder="Select date">
                                             </div>
@@ -504,6 +509,7 @@
                                                     class="block text-sm font-medium text-gray-700">Bank Account</label>
                                                 <input type="text" name="bankAccount" id="bankAccount"
                                                     autocomplete="given-name"
+                                                    value="<?php echo $row['bank_account']; ?>"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
                                             <div class="col-span-6 sm:col-span-3">
@@ -512,6 +518,7 @@
                                                     Number</label>
                                                 <input type="text" name="citizenNumber" id="citizenNumber"
                                                     autocomplete="family-name"
+                                                    value="<?php echo $row['citizenship']; ?>"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
                                             
@@ -520,6 +527,7 @@
                                                     Card</label>
                                                 <input type="text" name="panCard" id="panCard"
                                                     autocomplete="family-name"
+                                                    value="<?php echo $row['pan_card']; ?>"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             </div>
                                         </div>
