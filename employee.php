@@ -85,49 +85,27 @@ include "./session.php";
                     <div class="px-3 py-2 overflow-y-auto rounded ">
                         <ul class="space-y-2 sidebar">
                             <li>
-                                <a href="unfinished.php" class="dark:text-white hover:bg-orange-400 ">
+                                <a href="dashboard.php" class="dark:text-white hover:bg-orange-400 ">
                                     <i class="material-icons " style="color:#F29D38">dashboard</i>
                                     <span class="ml-3">Dashboard</span>
                                 </a>
                             </li>
                             <li>
-                                <button type="button"
-                                    class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white "
-                                    aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                                    <i class="material-icons" style="color:#F29D38">corporate_fare</i>
-                                    <span class="flex-1 ml-3 text-left whitespace-nowrap"
-                                        sidebar-toggle-item>Organization</span>
-                                    <i class="material-icons" style="color:#F29D38">keyboard_arrow_down</i>
-                                </button>
-                                <ul id="dropdown-example" class="hidden py-2 space-y-2 ">
-                                    <li>
-                                        <a href="employee.php"
-                                            class="flex items-center p-2 pl-11 w-full  text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Employee</a>
-                                    </li>
-                                    <li>
-                                        <a href="unfinished.php"
-                                            class="flex items-center p-2 pl-11 w-full text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Department</a>
-                                    </li>
-                                    <li>
-                                        <a href="unfinished.php"
-                                            class="flex items-center p-2 pl-11 w-full text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Designation</a>
-                                    </li>
-                                    <li>
-                                        <a href="unfinished.php"
-                                            class="flex items-center p-2 pl-11 w-full text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">New
-                                            Hire</a>
-                                    </li>
-                                </ul>
+                                <a href="employee.php" class="dark:text-white hover:bg-orange-400 ">
+                                    <i class="material-icons" style="color:#F29D38">badge</i>
+                                    <span class="flex-1 ml-3 whitespace-nowrap">Employee</span>
+
+                                </a>
                             </li>
                             <li>
-                                <a href="unfinished.php" class="dark:text-white hover:bg-orange-400 ">
+                                <a href="payroll.php" class="dark:text-white hover:bg-orange-400 ">
                                     <i class="material-icons" style="color:#F29D38">credit_card</i>
                                     <span class="flex-1 ml-3 whitespace-nowrap">Payroll</span>
 
                                 </a>
                             </li>
                             <li>
-                                <a href="unfinished.php" class="dark:text-white hover:bg-orange-400 ">
+                                <a href="project.php" class="dark:text-white hover:bg-orange-400 ">
                                     <i class="material-icons" style="color:#F29D38">assignment</i>
                                     <span class="flex-1 ml-3 whitespace-nowrap">Project</span>
                                 </a>
@@ -164,7 +142,7 @@ include "./session.php";
                             </li>
 
                             <li>
-                                <a href="unfinished.php"
+                                <a href="notice.php"
                                     class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-orange-400  dark:text-white group">
                                     <i class="material-icons" style="color:#F29D38">notifications</i>
                                     <span class="ml-3">Notice</span>

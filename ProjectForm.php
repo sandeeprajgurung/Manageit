@@ -53,33 +53,11 @@
                                 </a>
                             </li>
                             <li>
-                                <button type="button"
-                                    class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white "
-                                    aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                                    <i class="material-icons" style="color:#F29D38">corporate_fare</i>
-                                    <span class="flex-1 ml-3 text-left whitespace-nowrap"
-                                        sidebar-toggle-item>Organization</span>
-                                    <i class="material-icons" style="color:#F29D38">keyboard_arrow_down</i>
-                                </button>
-                                <ul id="dropdown-example" class="hidden py-2 space-y-2 ">
-                                    <li>
-                                        <a href="employee.php"
-                                            class="flex items-center p-2 pl-11 w-full  text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Employee</a>
-                                    </li>
-                                    <li>
-                                        <a href="unfinished.php"
-                                            class="flex items-center p-2 pl-11 w-full text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Department</a>
-                                    </li>
-                                    <li>
-                                        <a href="unfinished.php"
-                                            class="flex items-center p-2 pl-11 w-full text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Designation</a>
-                                    </li>
-                                    <li>
-                                        <a href="unfinished.php"
-                                            class="flex items-center p-2 pl-11 w-full text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">New
-                                            Hire</a>
-                                    </li>
-                                </ul>
+                                <a href="unfinished.php" class="dark:text-white hover:bg-orange-400 ">
+                                    <i class="material-icons" style="color:#F29D38">badge</i>
+                                    <span class="flex-1 ml-3 whitespace-nowrap">Employee</span>
+
+                                </a>
                             </li>
                             <li>
                                 <a href="unfinished.php" class="dark:text-white hover:bg-orange-400 ">
@@ -240,7 +218,7 @@
                        
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                             for="grid-first-name">
-                            Project Name
+                            Project Manager
                         </label>
                         <div class="relative">
                             <input type="text" name="employee" placeholder="project Manager" 
@@ -291,13 +269,51 @@
                                     placeholder="Select date">
                             </div>
                         </div>
+                        
                     </div>
                     
                     
+                    
                 </div>
+                <div class="flex flex-wrap -mx-3 mb-2">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="grid-first-name">
+                            Member
+                        </label>
+                        <div class="relative">
+                            <input type="text" name="employee" placeholder="members" 
+                                class="block h-10 appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="grid-state">
+                                
+                            </input>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="grid-state">
+                            End Date
+                        </label>
+                        <div class="relative">
+                            <div class="relative">
+                                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-orange-400 dark:text-gray-400" fill="currentColor"
+                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <input type="text" id="enddate" name="returnDate" autocomplete="off"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Select date">
+                            </div>
+                        </div>
+                        
+                    </div>
                 
                     <div class="px-4 py-3 text-right sm:px-6">
-                                        <button type="submit" name="asset"
+                                        <button type="submit" name="project_submit"
                                             class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-400 hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Apply</button>
                     </div>
                 </div>

@@ -16,14 +16,12 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-gradient-to-r from-orange-400 to-yellow-400 shadow-sm">
-        <div class="container">
-            <a href="unfinished.php" class="navbar-brand">
-                <!-- Logo Image -->
-                <img src="https://bootstrapious.com/i/snippets/sn-nav-logo/logo.png" width="30" alt=""
-                    class="d-inline-block align-middle mr-2">
-                <!-- Logo Text -->
-                <span class="text-uppercase font-weight-bold">Manageit</span>
+<nav
+        class="bg-gradient-to-r from-orange-400 to-yellow-400 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+        <div class="container flex flex-wrap justify-between items-center mx-auto">
+            <a href="https://flowbite.com" class="flex items-center">
+                <img src="./img/Frame 1.png" class=" h-6 sm:h-9 rounded-full" alt="Flowbite Logo">
+                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Manageit</span>
             </a>
             <div class="flex items-center md:order-2">
                 <button type="button"
@@ -32,11 +30,11 @@
                     <span class="sr-only">Open user menu</span>
                     <img class="w-8 h-8 rounded-full" src="./img/person.png" alt="user photo">
                 </button>
-                <p class="ml-4 mr-4" ><?php echo $_SESSION['user']['name']; ?></p>
+                <p class="ml-4 mr-4"><?php echo $_SESSION['user']['name']; ?></p>
 
-                <div class="hidden z-50  text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
                     id="dropdown" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top"
-                    style="position: absolute; margin: left -46px; margin-top: 19rem;">
+                    style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(1054.4px, 1016px, 0px);">
                     <div class="py-3 px-4">
                         <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
                         <span
@@ -45,11 +43,18 @@
                     <ul class="py-1" aria-labelledby="dropdown">
                         <li>
                             <a href="#"
-                                class="block py-2 px-4 text-sm rounded-lg text-gray-700 hover:bg-orange-400 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
+                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
                         </li>
-                        
                         <li>
                             <a href="#"
+                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                        </li>
+                        <li>
+                            <a href="logout.php"
                                 class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
                                 out</a>
                         </li>
@@ -57,58 +62,39 @@
                 </div>
 
             </div>
+        </div>
     </nav>
+
+
     <!--Side bar-->
     <div class="flex">
         <div class="flex flex-col w-64 h-screen  overflow-y-auto border-r">
-            <div class="flex flex-col justify-between mt-3">
+            <div class="flex flex-col justify-between mt-6">
                 <aside>
                     <div class="px-3 py-2 overflow-y-auto rounded ">
                         <ul class="space-y-2 sidebar">
                             <li>
-                                <a href="unfinished.php" class="dark:text-white hover:bg-orange-400 ">
+                                <a href="dashboard.php" class="dark:text-white hover:bg-orange-400 ">
                                     <i class="material-icons " style="color:#F29D38">dashboard</i>
                                     <span class="ml-3">Dashboard</span>
                                 </a>
                             </li>
                             <li>
-                                <button type="button"
-                                    class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white "
-                                    aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                                    <i class="material-icons" style="color:#F29D38">corporate_fare</i>
-                                    <span class="flex-1 ml-3 text-left whitespace-nowrap"
-                                        sidebar-toggle-item>Organization</span>
-                                    <i class="material-icons" style="color:#F29D38">keyboard_arrow_down</i>
-                                </button>
-                                <ul id="dropdown-example" class="hidden py-2 space-y-2 ">
-                                    <li>
-                                        <a href="employee.php"
-                                            class="flex items-center p-2 pl-11 w-full  text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Employee</a>
-                                    </li>
-                                    <li>
-                                        <a href="unfinished.php"
-                                            class="flex items-center p-2 pl-11 w-full text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Department</a>
-                                    </li>
-                                    <li>
-                                        <a href="unfinished.php"
-                                            class="flex items-center p-2 pl-11 w-full text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">Designation</a>
-                                    </li>
-                                    <li>
-                                        <a href="unfinished.php"
-                                            class="flex items-center p-2 pl-11 w-full text-xs font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-orange-400 dark:text-white ">New
-                                            Hire</a>
-                                    </li>
-                                </ul>
+                                <a href="employee.php" class="dark:text-white hover:bg-orange-400 ">
+                                    <i class="material-icons" style="color:#F29D38">badge</i>
+                                    <span class="flex-1 ml-3 whitespace-nowrap">Employee</span>
+
+                                </a>
                             </li>
                             <li>
-                                <a href="unfinished.php" class="dark:text-white hover:bg-orange-400 ">
+                                <a href="payroll.php" class="dark:text-white hover:bg-orange-400 ">
                                     <i class="material-icons" style="color:#F29D38">credit_card</i>
                                     <span class="flex-1 ml-3 whitespace-nowrap">Payroll</span>
 
                                 </a>
                             </li>
                             <li>
-                                <a href="unfinished.php" class="dark:text-white hover:bg-orange-400 ">
+                                <a href="project.php" class="dark:text-white hover:bg-orange-400 ">
                                     <i class="material-icons" style="color:#F29D38">assignment</i>
                                     <span class="flex-1 ml-3 whitespace-nowrap">Project</span>
                                 </a>
@@ -145,7 +131,7 @@
                             </li>
 
                             <li>
-                                <a href="unfinished.php"
+                                <a href="notice.php"
                                     class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-orange-400  dark:text-white group">
                                     <i class="material-icons" style="color:#F29D38">notifications</i>
                                     <span class="ml-3">Notice</span>
